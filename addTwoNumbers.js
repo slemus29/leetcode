@@ -25,9 +25,10 @@ function ListNode(val, next) {
     this.val = (val===undefined ? 0 : val)
     this.next = (next===undefined ? null : next)
 }
+const l1 = new ListNode(2, new ListNode(4, new ListNode(3, undefined)))
 const addTwoNumbers = function(l1, l2) {
   let dummy = new ListNode();
-  console.log(dummy)
+  console.log(l1)  
   let result = dummy;
   let total = 0;
   let carry = 0;
@@ -36,6 +37,7 @@ const addTwoNumbers = function(l1, l2) {
     total = carry
     if(l1) {
         total += l1.val;
+        console.log(l1.val)
         l1 = l1.next
     }
 
@@ -50,14 +52,16 @@ const addTwoNumbers = function(l1, l2) {
     dummy = dummy.next;
   }
 
+  console.log(result.next)
+
   return result.next;
 };
 
-// const node1 = new ListNode(2)
-// const node2 = new ListNode(4)
+const node1 = new ListNode([2,4,3])
+const node2 = new ListNode([5,6,4])
 // const node3 = new ListNode(3)
 
 // node1.next= node2;
 // node2.next= node3;
 
-console.log(addTwoNumbers(new ListNode([2,4,3]), new ListNode([5,6,4])))
+console.log(addTwoNumbers(node1, node2))
